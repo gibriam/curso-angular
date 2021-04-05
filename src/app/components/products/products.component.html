@@ -1,0 +1,8 @@
+<input type="text" name="power" [(ngModel)]="power"> {{power| exponential}}
+<div class="product-grid">   
+  <app-product 
+    *ngFor="let product of products" 
+    [product]="product" 
+    (onAddCart)="addProduct($event)">
+  </app-product>
+</div>
