@@ -25,19 +25,19 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy{
     today = new Date();
 
     constructor() {
-        console.log('Constructor');
+        //console.log('Constructor');
     }
 
     ngOnInit() {
-        console.log('nOnInit');
+        //console.log('nOnInit');
     }
 
     ngDoCheck() {
-        console.log('doCheck');
+        //console.log('doCheck');
     }
 
     ngOnDestroy() {
-        console.log('onDestroy');
+        //console.log('onDestroy');
     }    
 
     /*

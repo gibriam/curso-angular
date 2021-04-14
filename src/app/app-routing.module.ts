@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from './components/home/home.component';
-import {ProductsComponent} from './components/products/products.component';
-import {ContactComponent} from './components/contact/contact.component';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import {PageNotFoundComponent} from './components/error/page-not-found/page-not-found.component';
-import {ProductDetailComponent} from './components/products/product-detail/product-detail.component';
 import {LayoutComponent} from './components/layout/layout.component';
+import {AdminGuard} from './admin.guard';
 
 const routes: Routes = [
   {
@@ -19,30 +16,30 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        component: HomeComponent
+        loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
       },
       {
         path:'products',
-        component: ProductsComponent
-      },
-      {
-        path:'products/:id',
-        component: ProductDetailComponent
+        canActivate:[AdminGuard],
+        loadChildren: () => import('./components/products/product.module').then(m => m.ProductModule)
       },
       {
         path:'contact',
-        component: ContactComponent
+        canActivate:[AdminGuard],
+        loadChildren: () => import('./components/contact/contact.module').then(m => m.ContactModule)
       },
       {
         path:'**',
-        component:PageNotFoundComponent
+        loadChildren: () => import('./components/error/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
       }
     ]    
   }  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy:PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
