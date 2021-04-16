@@ -11,10 +11,10 @@ export class ProductsComponent implements OnInit {
   
   products: ProductModel[];
 
-  constructor(private productService:ProductsService) { }
+  constructor(private productsService:ProductsService) { }
 
-  ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
+  ngOnInit() {
+    this.fetchProducts();
   }
 
   title = 'plazi-store';
@@ -22,6 +22,13 @@ export class ProductsComponent implements OnInit {
 
   addProduct(id:string) {
     console.log(id);
+  }
+
+  fetchProducts() {
+    this.productsService.getAllProducts().subscribe( products => {
+      console.log(products);
+      this.products = products;
+    })
   }
 
 }
