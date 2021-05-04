@@ -10,8 +10,8 @@ footer {
     h3 {
       color: white;
     }
-    input{
-      color: white;
+    input, mat-label{
+      color: white !important;
     }
     ul {
       list-style: none;

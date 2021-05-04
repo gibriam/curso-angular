@@ -36,7 +36,13 @@
           <div class="box">
             <h3>Contacto</h3>
             
-            
+              <mat-form-field class="example-full-width">
+                <mat-label>Correo</mat-label>
+                <input matInput [formControl]="emailField">
+              </mat-form-field>
+              <button mat-raised-button [disabled]="emailField.invalid" (click)="sendEmail()">Enviar</button>
+              <p *ngIf="emailField.invalid && emailField.dirty">Correo Invalido</p>
+          
           </div>
         </div>
       </div>
