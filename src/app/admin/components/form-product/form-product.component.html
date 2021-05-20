@@ -15,6 +15,13 @@
                 <mat-label>Precio</mat-label>
                 <input formControlName="price" matInput type="text">
             </mat-form-field>
+            
+            <div *ngIf="priceField.errors && priceField.dirty">
+                <!--<p *ngIf="priceField.hasError('price_invalid')">no te debes pasar de 1000</p>
+                <p *ngIf="priceField.hasError('required')">el campo es requerido</p>-->
+            </div>
+                
+            
             <mat-form-field class="example-full-width">
                 <mat-label>Descripcion</mat-label>
                 <input formControlName="description" matInput type="text">
