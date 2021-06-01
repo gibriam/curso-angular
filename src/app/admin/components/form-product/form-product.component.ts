@@ -25,11 +25,11 @@ export class FormProductComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      id:['',Validators.required],
-      title:['',Validators.required],
-      price:['',Validators.required, CustomValidators.isValidPrice],
+      id:['', [Validators.required] ],
+      title:['', [Validators.required] ],
+      price:['', [Validators.required, CustomValidators.isValidPrice] ],
       image:[''],
-      description:['',Validators.required]
+      description:['',[Validators.required] ]
     })
   }
 
@@ -46,7 +46,6 @@ export class FormProductComponent implements OnInit {
   }
 
   get priceField() {
-    console.log(this.form.get('price'))
     return this.form.get('price');
   }
 
