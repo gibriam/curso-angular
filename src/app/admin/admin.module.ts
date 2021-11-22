@@ -12,9 +12,10 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, DashboardComponent, TableComponent, ProductsListComponent, FormProductComponent, LoginComponent, AddUserComponent],
+  declarations: [ProductFormComponent, NavComponent, DashboardComponent, TableComponent, ProductsListComponent, FormProductComponent, LoginComponent, AddUserComponent, ProductEditComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

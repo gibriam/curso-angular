@@ -10,7 +10,8 @@ import {
     SimpleChanges
 } from '@angular/core';
 
-import {ProductModel} from '../../../models/product.model'
+import {ProductModel} from '../../../models/product.model';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
     selector: 'app-product',
@@ -24,7 +25,7 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy{
     @Output() onAddCart:EventEmitter<string> = new EventEmitter();
     today = new Date();
 
-    constructor() {
+    constructor(private cartService:CartService) {
         //console.log('Constructor');
     }
 
@@ -47,7 +48,7 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy{
     */
 
     addCart() {
-        //console.log(this.product.id);
-        this.onAddCart.emit(this.product.id);
+        console.log('añadir al carrito');
+        this.cartService.addCart(this.product);
     }
 }

@@ -8,6 +8,7 @@ import {ProductsListComponent} from './components/products-list/products-list.co
 import {FormProductComponent} from './components/form-product/form-product.component';
 import {LoginComponent} from './components/login/login.component';
 import {AddUserComponent} from './components/add-user/add-user.component';
+import {ProductEditComponent} from './components/product-edit/product-edit.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path:'register',
         component:AddUserComponent
+      },
+      {
+        path:'products/edit/:id',
+        component:ProductEditComponent
       }
     ]
   }
